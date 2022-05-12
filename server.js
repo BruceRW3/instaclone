@@ -17,6 +17,17 @@ connection.once("open", () => {
     console.log("Database connection established");
 });
 
+const usersRouter = require("./routes/users");
+const postsRouter = require("./routes/posts");
+const commentRouter = require("./routes/comment");
+
+app.use("/users", usersRouter);
+app.use("/posts", postsRouter);
+app.use("/comment", commentRouter);
+
 app.listen(port, () => {
   console.log(`Server running on port: ${port}`);
 });
+
+// delete once string generated
+// console.log(require('crypto').randomBytes(64).toString('hex'))
